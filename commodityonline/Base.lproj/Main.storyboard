@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="commodityonline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omC-QA-246">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MX-PQ-Tuw">
+                                <rect key="frame" x="117.5" y="269.5" width="140" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="msq-b9-eJC"/>
+                                    <constraint firstAttribute="width" constant="140" id="ziU-dm-x0x"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="omC-QA-246" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GLa-54-tRW"/>
+                            <constraint firstItem="7MX-PQ-Tuw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ghb-Xf-IeA"/>
+                            <constraint firstItem="omC-QA-246" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="H1q-4W-DCz"/>
+                            <constraint firstItem="7MX-PQ-Tuw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cUM-1a-Cvs"/>
+                            <constraint firstItem="omC-QA-246" firstAttribute="width" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" id="g2t-6H-T5B"/>
+                            <constraint firstAttribute="trailing" secondItem="omC-QA-246" secondAttribute="trailing" id="p6w-wf-KiV"/>
+                            <constraint firstAttribute="bottom" secondItem="omC-QA-246" secondAttribute="bottom" id="ylE-Py-wHK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gg6-UW-inf"/>
+                    <connections>
+                        <outlet property="loaderView" destination="7MX-PQ-Tuw" id="jm9-xO-PbY"/>
+                        <outlet property="webView" destination="omC-QA-246" id="mAx-5P-qjd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.60000000000002" y="97.601199400299862"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="vaE-tn-bQl">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6ER-1V-eRm" customClass="LoadingViewController" customModule="commodityonline" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z17-ev-K0f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkJ-rI-Jpc">
+                                <rect key="frame" x="36" y="133" width="303" height="325"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ist-ed-naf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tkJ-rI-Jpc" secondAttribute="trailing" constant="20" id="Xp1-tI-kCx"/>
+                            <constraint firstItem="tkJ-rI-Jpc" firstAttribute="leading" secondItem="Z17-ev-K0f" secondAttribute="leadingMargin" constant="20" id="Ybo-Mz-msi"/>
+                            <constraint firstItem="tkJ-rI-Jpc" firstAttribute="top" secondItem="Z17-ev-K0f" secondAttribute="topMargin" constant="133" id="fwH-i1-lRQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="tkJ-rI-Jpc" secondAttribute="bottom" constant="209" id="pC6-Ej-9TI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loadingView" destination="tkJ-rI-Jpc" id="LGO-B2-XWU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pG-Bc-4Qc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1834" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
