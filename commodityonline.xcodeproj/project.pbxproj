@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D718171AB7FC0BBC901BE25 /* Pods_commodityonline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D678C914B2DB0555FE5BB73 /* Pods_commodityonline.framework */; };
+		1885BBEC289C36E30081B0EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BBEB289C36E30081B0EC /* Constants.swift */; };
 		3863A0EB288FC8EA004148EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863A0EA288FC8EA004148EB /* AppDelegate.swift */; };
 		3863A0ED288FC8EA004148EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863A0EC288FC8EA004148EB /* SceneDelegate.swift */; };
 		3863A0EF288FC8EA004148EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863A0EE288FC8EA004148EB /* HomeViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1885BBEB289C36E30081B0EC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3863A0E7288FC8EA004148EB /* commodityonline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commodityonline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863A0EA288FC8EA004148EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3863A0EC288FC8EA004148EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				3863A0FE288FC9C1004148EB /* Delegate */,
 				3863A0EE288FC8EA004148EB /* HomeViewController.swift */,
 				3863A103288FE322004148EB /* LoadingViewController.swift */,
+				1885BBEB289C36E30081B0EC /* Constants.swift */,
 				38D728FD289A9E3D0077659E /* newViewController.swift */,
 				3863A0F0288FC8EA004148EB /* Main.storyboard */,
 				3863A0F3288FC8EB004148EB /* Assets.xcassets */,
@@ -237,6 +240,7 @@
 				3863A0EB288FC8EA004148EB /* AppDelegate.swift in Sources */,
 				3863A0ED288FC8EA004148EB /* SceneDelegate.swift in Sources */,
 				3863A104288FE322004148EB /* LoadingViewController.swift in Sources */,
+				1885BBEC289C36E30081B0EC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,28 +9,31 @@ import UIKit
 import WebKit
 import Lottie
 import Reachability
-import Alamofire
+
 
 class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     @IBOutlet var webView: WKWebView!
-    let phoneNumber = +918448090300
+    
     @IBOutlet var loaderView: UIView!
     let reachability = try! Reachability()
-    let networkError = "networkerror"
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createAnimation(name: "loading")
+        createAnimation(name: k.loadingPage)
         navigationController?.navigationBar.isHidden = true
-        let myUrl = URL(string: "https://www.commodityonline.com/?utm_source=mobile-app&utm_campaign=mobile-app")
+        let myUrl = URL(string: k.mainURL)
         let myRequest = URLRequest(url: myUrl!)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.load(myRequest)
         webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
         webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -68,72 +71,54 @@ class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         
-        let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
-        let fburl = URL(string:  "https://m.facebook.com/CommodityOnline")
-        let tweeturl = URL(string: " https://mobile.twitter.com/commodityonline")
-        let insturl = URL(string: "https://www.instagram.com/commodityonline/?hl=en")
-        
-
-   
+        let appURL = URL(string: k.watzURL)!
+        //        let fburl = URL(string:  "https://m.facebook.com/CommodityOnline")
+        //        let tweeturl = URL(string: " https://mobile.twitter.com/commodityonline")
+        //        let insturl = URL(string: "https://www.instagram.com/commodityonline/?hl=en")
+        //
         
         
-    
-        if navigationAction.request.url?.scheme == "tel" {
-                UIApplication.shared.open(navigationAction.request.url!)
-                decisionHandler(.cancel)
-            }
-        else if navigationAction.request.url?.scheme == "mailto" {
-                UIApplication.shared.open(navigationAction.request.url!)
-                decisionHandler(.cancel)
-            }
-        else if navigationAction.navigationType == .linkActivated {
-                if let url = navigationAction.request.url,
-                    let host = url.host, !host.hasPrefix("facebook.com"),
-                    UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:])
-                    print(url)
-                    print("No need to open it locally")
-                    decisionHandler(.cancel)
-                }
+        
+        
+        
+        if navigationAction.request.url?.scheme == k.phone {
+            UIApplication.shared.open(navigationAction.request.url!)
+            decisionHandler(.cancel)
         }
-//            if let url = navigationAction.request.url ,UIApplication.shared.canOpenURL(url){
-//                if (url.absoluteString.range(of: "facebook.com") != nil || url.absoluteString.range(of: "twitter.com") != nil || url.absoluteString.range(of: "instagram.com") != nil
-//                    || url.absoluteString.range(of: "googleplay.com") != nil){
-//                    UIApplication.shared.open(url, options: [:])
-////                    decisionHandler(.cancel)
-//            }
-//        }
-//            let url = navigationAction.request.url!
-//            UIApplication.shared.canOpenURL(url)
-//            decisionHandler(.cancel)
-//        }
-//
-//        else if navigationAction.request.url?.scheme == "wa.me" {
-//            if UIApplication.shared.canOpenURL(appURL) {
-//                if #available(iOS 10.0, *) {
-//                    UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
-//                }
-//                else {
-//                    UIApplication.shared.openURL(appURL)
-//                }
-//            }
-//
-//            decisionHandler(.cancel)
-//
-//        }
+        else if navigationAction.request.url?.scheme == k.mail {
+            UIApplication.shared.open(navigationAction.request.url!)
+            decisionHandler(.cancel)
+        }
+        
+        else if navigationAction.navigationType == .linkActivated  {
+            if let url = navigationAction.request.url ,UIApplication.shared.canOpenURL(url) {
+                if (url.absoluteString.range(of: k.fb) != nil || url.absoluteString.range(of: k.twit) != nil || url.absoluteString.range(of: k.insta) != nil
+                    || url.absoluteString.range(of: k.play) != nil || url.absoluteString.range(of:k.watz) != nil){
+                    if (url.absoluteString.range(of: k.watz) != nil) == true {
+                        UIApplication.shared.open( appURL, options: [:])
+                    }
+                    UIApplication.shared.open(url, options: [:])
+                    decisionHandler(.cancel)
+                    
+                }
+                else if url.absoluteString.suffix(11) == "mandi-alert"  {
+                    UIApplication.shared.open( url, options: [:])
+                           decisionHandler(.cancel)
+                    
+                }
+                
+                else {
+                    decisionHandler(.allow)
+                }
+            }
+        }
         else {
             decisionHandler(.allow)
         }
-//
-        
-        
-        
-
         
         
         
     }
-    
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -146,7 +131,7 @@ class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         print("loading Error Noted")
         let vc = storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
         vc.checker = true
-        vc.loadingString =  networkError
+        vc.loadingString = k.networkError
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
         

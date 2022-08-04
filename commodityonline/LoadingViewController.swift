@@ -9,25 +9,24 @@ import UIKit
 import Lottie
 
 class LoadingViewController: UIViewController {
-
+    
     @IBOutlet var loadingView: UIView!
-    let loadScreen = "pageNotFound"
     var loadingString = ""
     var checker = false
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if checker == false{
-            createAnimation(name: loadScreen )
+            createAnimation(name: k.loadScreen )
         }else {
             createAnimation(name: loadingString)
         }
         
         // Do any additional setup after loading the view.
     }
+    
 
-//    "pageNotFound"  "loading"  "networkerror"
     
     public func createAnimation(name:String) {
         
@@ -37,19 +36,51 @@ class LoadingViewController: UIViewController {
         animiView.frame = self.loadingView.bounds
         animiView.loopMode = .loop
         animiView.play()
-       self.loadingView.addSubview(animiView)
+        self.loadingView.addSubview(animiView)
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+
+
+
+
+//
+//
+//if navigationAction.request.url?.scheme == k.phone {
+//    UIApplication.shared.open(navigationAction.request.url!)
+//    decisionHandler(.cancel)
+//}
+//else if navigationAction.request.url?.scheme == k.mail {
+//    UIApplication.shared.open(navigationAction.request.url!)
+//    decisionHandler(.cancel)
+//}
+//
+//else if navigationAction.navigationType == .linkActivated  {
+//    if let url = navigationAction.request.url ,UIApplication.shared.canOpenURL(url) {
+//        if (url.absoluteString.range(of: k.fb) != nil || url.absoluteString.range(of: k.twit) != nil || url.absoluteString.range(of: k.insta) != nil
+//            || url.absoluteString.range(of: k.play) != nil || url.absoluteString.range(of:k.watz) != nil){
+//            if (url.absoluteString.range(of: k.watz) != nil) == true {
+//                UIApplication.shared.open( appURL, options: [:])
+//                decisionHandler(.cancel)
+//            }
+//            UIApplication.shared.open(url, options: [:])
+//            decisionHandler(.cancel)
+//        }
+////                else if url.host?.hasPrefix("Get Free mandi Alert") == true {
+////                    UIApplication.shared.open( appURL, options: [:])
+//////                    decisionHandler(.cancel)
+////                }
+//        } else {
+//            decisionHandler(.allow)
+//        }
+//      
+//    
+//}
+//else {
+//    decisionHandler(.allow)
+//}
+//
+//
+
