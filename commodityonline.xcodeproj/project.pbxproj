@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D718171AB7FC0BBC901BE25 /* Pods_commodityonline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D678C914B2DB0555FE5BB73 /* Pods_commodityonline.framework */; };
+		18752F88289ED6EE007A2510 /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18752F87289ED6EE007A2510 /* Network Manager.swift */; };
+		18752F8A289ED914007A2510 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18752F89289ED914007A2510 /* LaunchViewController.swift */; };
 		1885BBEC289C36E30081B0EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1885BBEB289C36E30081B0EC /* Constants.swift */; };
 		3863A0EB288FC8EA004148EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863A0EA288FC8EA004148EB /* AppDelegate.swift */; };
 		3863A0ED288FC8EA004148EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3863A0EC288FC8EA004148EB /* SceneDelegate.swift */; };
@@ -19,10 +21,11 @@
 		3863A106288FE354004148EB /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3863A105288FE354004148EB /* loading.json */; };
 		3863A108288FE618004148EB /* networkerror.json in Resources */ = {isa = PBXBuildFile; fileRef = 3863A107288FE618004148EB /* networkerror.json */; };
 		3863A10A288FE625004148EB /* pageNotFound.json in Resources */ = {isa = PBXBuildFile; fileRef = 3863A109288FE625004148EB /* pageNotFound.json */; };
-		38D728FE289A9E3D0077659E /* newViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D728FD289A9E3D0077659E /* newViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18752F87289ED6EE007A2510 /* Network Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = SOURCE_ROOT; };
+		18752F89289ED914007A2510 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		1885BBEB289C36E30081B0EC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3863A0E7288FC8EA004148EB /* commodityonline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = commodityonline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3863A0EA288FC8EA004148EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +39,6 @@
 		3863A105288FE354004148EB /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		3863A107288FE618004148EB /* networkerror.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = networkerror.json; sourceTree = "<group>"; };
 		3863A109288FE625004148EB /* pageNotFound.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pageNotFound.json; sourceTree = "<group>"; };
-		38D728FD289A9E3D0077659E /* newViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newViewController.swift; sourceTree = "<group>"; };
 		3D678C914B2DB0555FE5BB73 /* Pods_commodityonline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_commodityonline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B10AC519D8DF9D5B5CEE79EE /* Pods-commodityonline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-commodityonline.release.xcconfig"; path = "Target Support Files/Pods-commodityonline/Pods-commodityonline.release.xcconfig"; sourceTree = "<group>"; };
 		FC0D7756AB6972C6BD24449E /* Pods-commodityonline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-commodityonline.debug.xcconfig"; path = "Target Support Files/Pods-commodityonline/Pods-commodityonline.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,9 +79,10 @@
 			children = (
 				3863A0FE288FC9C1004148EB /* Delegate */,
 				3863A0EE288FC8EA004148EB /* HomeViewController.swift */,
+				18752F89289ED914007A2510 /* LaunchViewController.swift */,
+				18752F87289ED6EE007A2510 /* Network Manager.swift */,
 				3863A103288FE322004148EB /* LoadingViewController.swift */,
 				1885BBEB289C36E30081B0EC /* Constants.swift */,
-				38D728FD289A9E3D0077659E /* newViewController.swift */,
 				3863A0F0288FC8EA004148EB /* Main.storyboard */,
 				3863A0F3288FC8EB004148EB /* Assets.xcassets */,
 				3863A105288FE354004148EB /* loading.json */,
@@ -235,12 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38D728FE289A9E3D0077659E /* newViewController.swift in Sources */,
+				18752F88289ED6EE007A2510 /* Network Manager.swift in Sources */,
 				3863A0EF288FC8EA004148EB /* HomeViewController.swift in Sources */,
 				3863A0EB288FC8EA004148EB /* AppDelegate.swift in Sources */,
 				3863A0ED288FC8EA004148EB /* SceneDelegate.swift in Sources */,
 				3863A104288FE322004148EB /* LoadingViewController.swift in Sources */,
 				1885BBEC289C36E30081B0EC /* Constants.swift in Sources */,
+				18752F8A289ED914007A2510 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@ import UIKit
 import Lottie
 
 class LoadingViewController: UIViewController {
+    let network = NetworkManager.sharedInstance
     
     @IBOutlet var loadingView: UIView!
     var loadingString = ""
@@ -16,6 +17,9 @@ class LoadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        network.reachability.whenReachable = { _ in
+            self.showMainController()
+        }
         
         if checker == false{
             createAnimation(name: k.loadScreen )
@@ -26,6 +30,17 @@ class LoadingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func showMainController() {
+          DispatchQueue.main.async {
+//              self.performSegue(withIdentifier: "MainController", sender: self)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let vc = storyboard.instantiateViewController(withIdentifier:"HomeViewController") as!  HomeViewController
+        vc.modalPresentationStyle  = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+
+          }
+
+      }
 
     
     public func createAnimation(name:String) {

@@ -16,12 +16,16 @@ class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet var webView: WKWebView!
     
     @IBOutlet var loaderView: UIView!
-    let reachability = try! Reachability()
-    
+//    let reachability = try! Reachability()
+    let network = NetworkManager.sharedInstance
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        network.reachability.whenUnreachable = { reachability in
+            self.showOfflinePage()
+        }
         
         createAnimation(name: k.loadingPage)
         navigationController?.navigationBar.isHidden = true
@@ -37,34 +41,47 @@ class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
-        do{
-            try reachability.startNotifier()
-        }catch{
-            print("could not start reachability notifier")
-        }
-        
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+//        do{
+//            try reachability.startNotifier()
+//        }catch{
+//            print("could not start reachability notifier")
+//        }
+//
+//    }
     
-    @objc func reachabilityChanged(note: Notification) {
+//    @objc func reachabilityChanged(note: Notification) {
+//
+//        let reachability = note.object as! Reachability
+//
+//        switch reachability.connection {
+//        case .wifi:
+//            print("Reachable via WiFi")
+//            dismiss(animated: false, completion: nil)
+//        case .cellular:
+//            print("Reachable via Cellular")
+//            dismiss(animated: false, completion: nil)
+//        case .unavailable:
+//            print("Network not reachable")
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: false, completion: nil)
+//        default: break
+//        }
+//    }
+    
+    func showOfflinePage() {
+         DispatchQueue.main.async {
+ //            self.performSegue(withIdentifier: "NetworkUnavailable", sender: self)
+             let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+             let vc = storyboard.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
+             vc.checker = true
+             vc.loadingString = k.networkError
+             vc.modalPresentationStyle = .fullScreen
+             self.present(vc, animated: true, completion: nil)
         
-        let reachability = note.object as! Reachability
-        
-        switch reachability.connection {
-        case .wifi:
-            print("Reachable via WiFi")
-            dismiss(animated: false, completion: nil)
-        case .cellular:
-            print("Reachable via Cellular")
-            dismiss(animated: false, completion: nil)
-        case .unavailable:
-            print("Network not reachable")
-            let vc = storyboard?.instantiateViewController(withIdentifier: "LoadingViewController") as! LoadingViewController
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: false, completion: nil)
-        default: break
-        }
+         }
     }
     
     
