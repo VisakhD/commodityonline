@@ -20,7 +20,7 @@ struct k {
     static let fb = "facebook.com"
     static let insta = "instagram.com"
     static let twit = "twitter.com"
-    static let play = "play.google.com"
+    static let apple = "apps.apple.com/in"
     static let watz = "whatsapp.com"
     
 }

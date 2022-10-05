@@ -110,7 +110,7 @@ class HomeViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         else if navigationAction.navigationType == .linkActivated  {
             if let url = navigationAction.request.url ,UIApplication.shared.canOpenURL(url) {
                 if (url.absoluteString.range(of: k.fb) != nil || url.absoluteString.range(of: k.twit) != nil || url.absoluteString.range(of: k.insta) != nil
-                    || url.absoluteString.range(of: k.play) != nil || url.absoluteString.range(of:k.watz) != nil){
+                    || url.absoluteString.range(of: k.apple) != nil || url.absoluteString.range(of:k.watz) != nil){
                     if (url.absoluteString.range(of: k.watz) != nil) == true {
                         UIApplication.shared.open( appURL, options: [:])
                     }
